@@ -1,0 +1,149 @@
+/*
+  [RUTA]    src/styles/base.css
+  [CAPA]    styles · anillo 0 (no conoce a nadie)
+  [HACE]    Estilos globales: reset minimo, fondo de noche de
+            Midgar, cuadricula de pixeles, lineas de pantalla,
+            tamano de letra por dispositivo y respeto a
+            prefers-reduced-motion
+  [LO USAN] main.jsx (importado una sola vez)
+  [VERSIÓN] 1.0.0 · 2026-10-14 · versión inicial
+*/
+
+/* [SECCIÓN] Reset minimo */
+*,
+*::before,
+*::after {
+  /* [ESTILO] Todos los elementos cuentan borde y padding dentro del ancho */
+  box-sizing: border-box;
+  /* [ESTILO] Sin margenes por defecto (los controlamos nosotros) */
+  margin: 0;
+  /* [ESTILO] Sin padding por defecto */
+  padding: 0;
+}
+
+/* [SECCIÓN] HTML y body */
+html {
+  /* [RESPONSIVE] Tamano base por dispositivo; el celular es 100% (16px) */
+  font-size: 100%;
+}
+
+body {
+  /* [ESTILO] Fondo noche de Midgar (token) */
+  background-color: var(--noche-midgar);
+  /* [ESTILO] Texto principal (token) */
+  color: var(--texto);
+  /* [ESTILO] Fuente legible para todo el texto por defecto */
+  font-family: var(--fuente-legible);
+  /* [ESTILO] Altura de linea comoda para leer */
+  line-height: 1.5;
+  /* [ESTILO] Sin desbordes laterales */
+  overflow-x: hidden;
+  /* [ESTILO] Reserva la altura completa del viewport */
+  min-height: 100vh;
+  /* [ESTILO] Posicion relativa para las capas decorativas ::before/::after */
+  position: relative;
+}
+
+/* [SECCIÓN] Cuadricula de pixeles casi invisible + lineas de pantalla */
+body::before {
+  /* [ESTILO] Capa decorativa encima del fondo */
+  content: '';
+  position: fixed;
+  inset: 0;
+  /* [ESTILO] Cuadricula de pixeles cada 4px en azul muy tenue */
+  background-image:
+    linear-gradient(rgba(124, 143, 214, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 143, 214, 0.06) 1px, transparent 1px);
+  background-size: 4px 4px;
+  /* [ESTILO] Que no capture clicks ni tape texto */
+  pointer-events: none;
+  /* [ESTILO] Debajo del contenido real */
+  z-index: 0;
+}
+
+body::after {
+  /* [ESTILO] Lineas de pantalla (scanlines) muy suaves */
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.03) 0,
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  /* [ESTILO] Que no capture clicks ni tape texto */
+  pointer-events: none;
+  /* [ESTILO] Debajo del contenido real */
+  z-index: 0;
+}
+
+/* [SECCIÓN] Imagenes: que nunca se desborden por defecto */
+img {
+  /* [ESTILO] Ancho maximo del contenedor */
+  max-width: 100%;
+  /* [ESTILO] Alto automatico para no deformar */
+  height: auto;
+  /* [ESTILO] Se muestra como bloque para evitar espacios raros */
+  display: block;
+}
+
+/* [SECCIÓN] Textos largos: que puedan romperse sin desbordar */
+p,
+h1,
+h2,
+h3 {
+  /* [ESTILO] Rompe palabras larguisimas si hace falta */
+  overflow-wrap: anywhere;
+}
+
+/* [SECCIÓN] Enlaces: heredan color y sin subrayado por defecto */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* [SECCIÓN] Respeto a usuarios con "reducir movimiento" */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    /* [ESTILO] Apaga todas las animaciones y transiciones */
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* [SECCIÓN] [RESPONSIVE] Tamano de letra por dispositivo */
+/* [RESPONSIVE] Tablet: 600px a 1023px -> 106% (aprox 17px) */
+@media (min-width: 600px) {
+  html {
+    font-size: 106%;
+  }
+}
+
+/* [RESPONSIVE] PC: 1024px a 1919px -> 112% (aprox 18px) */
+@media (min-width: 1024px) {
+  html {
+    font-size: 112%;
+  }
+}
+
+/* [RESPONSIVE] TV Full HD: 1920px a 2559px -> 137% (aprox 22px) */
+@media (min-width: 1920px) {
+  html {
+    font-size: 137%;
+  }
+  /* [RESPONSIVE] En TV se apagan las lineas de pantalla para evitar moire */
+  body::after {
+    display: none;
+  }
+}
+
+/* [RESPONSIVE] TV 4K sin escala: 2560px o mas -> 175% (aprox 28px) */
+@media (min-width: 2560px) {
+  html {
+    font-size: 175%;
+  }
+}

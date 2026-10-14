@@ -1,0 +1,59 @@
+/*
+  [RUTA]    src/styles/variables.css
+  [CAPA]    styles · anillo 0 (no conoce a nadie)
+  [HACE]    Define los design tokens del proyecto: colores de la
+            paleta FF7, espaciados, bordes, radios y tamanos de
+            letra; todo con nombre para no hardcodear valores
+  [LO USAN] base.css y todos los CSS de components
+  [VERSIÓN] 1.0.0 · 2026-10-14 · versión inicial
+*/
+
+/* [SECCIÓN] Paleta (verificada con contraste minimo 4,5:1) */
+:root {
+  --noche-midgar: #0a0e24;      /* fondo de la pagina */
+  --noche-midgar-2: #141a3d;    /* marcos de imagen, franjas */
+  --ventana-1: #2340b0;         /* degradado de ventana (arriba izq) */
+  --ventana-2: #0b1a6b;         /* degradado (centro) */
+  --ventana-3: #040a3a;         /* degradado (abajo der) */
+  --borde-claro: #e8eeff;       /* borde exterior de ventanas */
+  --borde-sombra: #7c8fd6;      /* bisel interior (decorativo) */
+  --texto: #ffffff;             /* texto principal */
+  --texto-suave: #b9c6f2;       /* etiquetas y datos secundarios */
+  --oro: #ffd24a;               /* titulos y seleccion */
+  --cian-hp: #6ef0ff;           /* etiquetas "HP" y "Nivel" */
+  --mako: #3dffa0;              /* brillos y acento de energia */
+  --materia-amarilla: #f2c230;  /* orbe seccion Juego */
+  --materia-verde: #3fd07a;     /* orbe seccion Personajes */
+  --materia-roja: #e5483f;      /* orbe seccion Monstruos */
+  --jefe-fondo: #b3261e;        /* etiqueta "Jefe" */
+  --enemigo-fondo: #5b2a9a;     /* etiqueta "Enemigo" */
+  --aviso-fondo: #3a0a12;       /* ventana "sin datos" */
+  --aviso-borde: #ff6b6b;       /* borde de esa ventana */
+
+  /* [SECCIÓN] Espaciados (multiplos de 0.25rem) */
+  --esp-1: 0.25rem;
+  --esp-2: 0.5rem;
+  --esp-3: 0.75rem;
+  --esp-4: 1rem;
+  --esp-5: 1.5rem;
+  --esp-6: 2rem;
+
+  /* [SECCIÓN] Bordes y radios (esquinas a 0 = pixel art) */
+  --borde-fino: 2px;
+  --borde-grueso: 4px;
+
+  /* [SECCIÓN] Tamanos de letra en rem */
+  --fuente-xs: 0.625rem;
+  --fuente-sm: 0.75rem;
+  --fuente-md: 0.875rem;
+  --fuente-lg: 1rem;
+  --fuente-xl: 1.25rem;
+  --fuente-2xl: 1.5rem;
+
+  /* [SECCIÓN] Ancho maximo del contenido (centrado en pantallas grandes) */
+  --ancho-contenido: 75rem;
+
+  /* [SECCIÓN] Tipografias (respaldos obligatorios) */
+  --fuente-pixel: 'Press Start 2P', 'Courier New', monospace;
+  --fuente-legible: 'Atkinson Hyperlegible', system-ui, sans-serif;
+}

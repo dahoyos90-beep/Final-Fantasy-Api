@@ -2,9 +2,11 @@
   [RUTA]    index.html
   [CAPA]    raíz del proyecto (no es src, no es un anillo)
   [HACE]    Es el HTML base que Vite sirve; contiene el div#root
-            donde React monta la app y define idioma y título
+            donde React monta la app, define idioma y título, y
+            carga las dos fuentes externas (Press Start 2P y
+            Atkinson Hyperlegible) desde Google Fonts
   [LO USAN] Vite (dev server y build) y el navegador
-  [VERSIÓN] 1.0.0 · 2026-10-14 · versión inicial
+  [VERSIÓN] 1.1.0 · 2026-10-14 · agrega link de Google Fonts
 -->
 
 <!doctype html>
@@ -13,6 +15,17 @@
     <meta charset="UTF-8" /> <!-- [HACE] permite tildes y eñes sin romperse -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> <!-- [HACE] icono de la pestaña (lo trae Vite) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- [HACE] adapta la vista a celular -->
+
+    <!-- [HACE] Preconecta con Google Fonts para que cargue mas rapido -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- [HACE] Carga Press Start 2P (pixel, para titulos) y Atkinson Hyperlegible (legible, para parrafos) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+
     <title>Final Fantasy VII</title> <!-- [HACE] título que se ve en la pestaña del navegador -->
   </head>
   <body>
