@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Material de trabajo (no forma parte del proyecto)
+ARQUITECTURA POR CAPAS*.txt
+CATALOGO FINAL FANTASY VII.txt
