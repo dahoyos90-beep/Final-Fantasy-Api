@@ -8,7 +8,7 @@
  */
 
 // [IMPORTA] Su propio CSS (anillo 0 · styles)
-import '../styles/TarjetaPersonaje.css'
+import '../../styles/TarjetaPersonaje.css'
 
 // [RECIBE] nombre, rol, imagen y descripcion como props
 export default function TarjetaPersonaje({ nombre, rol, imagen, descripcion }) {

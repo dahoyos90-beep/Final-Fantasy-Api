@@ -1,122 +1,52 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+/**
+ * [RUTA]    src/App.jsx
+ * [CAPA]    anillo 5 (conoce a sections y components/layout)
+ * [HACE]    Ordena la pantalla: dibuja el Encabezado, decide si
+ *           hay datos suficientes y, segun eso, muestra las tres
+ *           secciones o el aviso de sin datos. No hace fetch ni
+ *           transforma datos: solo recibe props y las reparte
+ * [LO USAN] main.jsx
+ * [VERSIÓN] 1.0.0 · 2026-10-14 · versión inicial
+ */
 
-function App() {
-  const [count, setCount] = useState(0)
+// [IMPORTA] El encabezado (anillo 3 · components/layout)
+import Encabezado from './components/layout/Encabezado.jsx'
 
+// [IMPORTA] El aviso de "sin datos" (anillo 3 · components/layout)
+import AvisoSinDatos from './components/layout/AvisoSinDatos.jsx'
+
+// [IMPORTA] Las tres secciones (anillo 4 · sections)
+import SeccionJuego from './sections/SeccionJuego.jsx'
+import SeccionPersonajes from './sections/SeccionPersonajes.jsx'
+import SeccionMonstruos from './sections/SeccionMonstruos.jsx'
+
+// [RECIBE] juego (objeto o null), personajes (lista) y monstruos (lista)
+export default function App({ juego, personajes, monstruos }) {
+  // [HACE] Hay datos suficientes si el juego existe, hay 2 personajes
+  //        y hay 3 monstruos; si falta algo, mostramos el aviso
+  const hayDatos =
+    juego !== null && personajes.length === 2 && monstruos.length === 3
+
+  // [DIBUJA] Encabezado arriba y luego, segun hayDatos, las
+  //          secciones o el aviso
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+      {/* [DIBUJA] Encabezado comun a toda la pantalla */}
+      <Encabezado
+        titulo="Final Fantasy VII"
+        subtitulo="Datos en vivo desde la MoogleAPI"
+      />
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+      {/* [DIBUJA] Ternario: si hay datos, las tres secciones; si no, el aviso */}
+      {hayDatos ? (
+        <>
+          <SeccionJuego juego={juego} />
+          <SeccionPersonajes personajes={personajes} />
+          <SeccionMonstruos monstruos={monstruos} />
+        </>
+      ) : (
+        <AvisoSinDatos />
+      )}
     </>
   )
 }
-
-export default App

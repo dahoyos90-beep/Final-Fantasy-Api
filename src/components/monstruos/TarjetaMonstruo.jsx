@@ -8,7 +8,7 @@
  */
 
 // [IMPORTA] Su propio CSS (anillo 0 · styles)
-import '../styles/TarjetaMonstruo.css'
+import '../../styles/TarjetaMonstruo.css'
 
 // [RECIBE] nombre, esJefe (por defecto false), ubicacion, nivel,
 //          hp, debilidad e imagen como props

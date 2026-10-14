@@ -9,7 +9,7 @@
  */
 
 // [IMPORTA] Su propio CSS (anillo 0 · styles)
-import '../styles/Panel.css'
+import '../../styles/Panel.css'
 
 // [RECIBE] titulo (texto) y children (el contenido que va adentro)
 export default function Panel({ titulo, children }) {

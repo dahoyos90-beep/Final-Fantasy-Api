@@ -8,7 +8,7 @@
  */
 
 // [IMPORTA] Su propio CSS (anillo 0 · styles)
-import '../styles/TarjetaJuego.css'
+import '../../styles/TarjetaJuego.css'
 
 // [RECIBE] nombre, anio, plataforma e imagen como props
 export default function TarjetaJuego({ nombre, anio, plataforma, imagen }) {

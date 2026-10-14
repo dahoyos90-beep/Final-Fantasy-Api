@@ -9,7 +9,7 @@
  */
 
 // [IMPORTA] Su propio CSS (anillo 0 · styles)
-import '../styles/AvisoSinDatos.css'
+import '../../styles/AvisoSinDatos.css'
 
 // [DIBUJA] Sin props: mensaje fijo en español
 export default function AvisoSinDatos() {
