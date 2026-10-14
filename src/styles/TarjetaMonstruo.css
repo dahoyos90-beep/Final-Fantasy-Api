@@ -1,0 +1,145 @@
+/*
+  [RUTA]    src/styles/TarjetaMonstruo.css
+  [CAPA]    styles · anillo 0 (no conoce a nadie)
+  [HACE]    Viste la tarjeta del monstruo: ventana interna oscura
+            con borde fino, imagen enmarcada, etiqueta Jefe/Enemigo
+            con pastilla cuadrada y datos con etiquetas cian
+  [LO USAN] components/monstruos/TarjetaMonstruo.jsx
+  [VERSIÓN] 1.0.0 · 2026-10-14 · versión inicial
+*/
+
+/* [SECCIÓN] Ventana interna de la tarjeta */
+.tarjeta-monstruo {
+  /* [ESTILO] Fondo azul noche más oscuro que el panel */
+  background: var(--noche-midgar-2);
+  /* [ESTILO] Borde fino claro */
+  border: var(--borde-fino) solid var(--borde-claro);
+  /* [ESTILO] Sin redondeo (pixel art) */
+  border-radius: 0;
+  /* [ESTILO] Aire interior */
+  padding: var(--esp-4);
+  /* [ESTILO] Centrado del contenido */
+  text-align: center;
+  /* [ESTILO] Permite que el contenido se encoja sin desbordar */
+  min-width: 0;
+  /* [ESTILO] Transición suave para el hover */
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* [SECCIÓN] Marco de la imagen */
+.tarjeta-monstruo__imagen {
+  /* [ESTILO] Ocupa el ancho disponible */
+  width: 100%;
+  /* [ESTILO] Reserva un cuadrado para que no salte la página */
+  aspect-ratio: 1 / 1;
+  /* [ESTILO] Ajusta sin deformar */
+  object-fit: contain;
+  /* [ESTILO] Fondo del marco */
+  background: var(--noche-midgar);
+  /* [ESTILO] Borde de pixel alrededor */
+  border: var(--borde-fino) solid var(--borde-sombra);
+  /* [ESTILO] Espacio debajo de la imagen */
+  margin-bottom: var(--esp-3);
+}
+
+/* [SECCIÓN] Nombre del monstruo */
+.tarjeta-monstruo__nombre {
+  /* [ESTILO] Tipografía pixel */
+  font-family: var(--fuente-pixel);
+  /* [ESTILO] Tamaño medio */
+  font-size: var(--fuente-md);
+  /* [ESTILO] Color oro */
+  color: var(--oro);
+  /* [ESTILO] Interlineado amplio para tipografía cuadrada */
+  line-height: 1.6;
+  /* [ESTILO] Espacio debajo */
+  margin-bottom: var(--esp-2);
+}
+
+/* [SECCIÓN] Etiqueta Jefe/Enemigo (pastilla cuadrada) */
+.tarjeta-monstruo__etiqueta {
+  /* [ESTILO] Se muestra en línea pero como bloque interno */
+  display: inline-block;
+  /* [ESTILO] Tipografía pixel pequeña */
+  font-family: var(--fuente-pixel);
+  /* [ESTILO] Tamaño muy pequeño */
+  font-size: var(--fuente-xs);
+  /* [ESTILO] Texto en mayúsculas por CSS (no por texto fijo) */
+  text-transform: uppercase;
+  /* [ESTILO] Texto blanco para contraste */
+  color: var(--texto);
+  /* [ESTILO] Aire interior */
+  padding: var(--esp-1) var(--esp-2);
+  /* [ESTILO] Sin redondeo (pastilla cuadrada, pixel art) */
+  border-radius: 0;
+  /* [ESTILO] Espacio debajo */
+  margin-bottom: var(--esp-3);
+}
+
+/* [SECCIÓN] Variante Jefe */
+.etiqueta--jefe {
+  /* [ESTILO] Fondo rojo (token) */
+  background: var(--jefe-fondo);
+}
+
+/* [SECCIÓN] Variante Enemigo */
+.etiqueta--enemigo {
+  /* [ESTILO] Fondo morado (token) */
+  background: var(--enemigo-fondo);
+}
+
+/* [SECCIÓN] Ubicación */
+.tarjeta-monstruo__ubicacion {
+  /* [ESTILO] Tipografía legible */
+  font-family: var(--fuente-legible);
+  /* [ESTILO] Tamaño pequeño */
+  font-size: var(--fuente-sm);
+  /* [ESTILO] Color texto suave */
+  color: var(--texto-suave);
+  /* [ESTILO] Espacio debajo */
+  margin-bottom: var(--esp-2);
+}
+
+/* [SECCIÓN] Nivel y HP (etiquetas con cian) */
+.tarjeta-monstruo__stats {
+  /* [ESTILO] Tipografía legible */
+  font-family: var(--fuente-legible);
+  /* [ESTILO] Tamaño pequeño */
+  font-size: var(--fuente-sm);
+  /* [ESTILO] Color cian para etiquetas de estado */
+  color: var(--cian-hp);
+  /* [ESTILO] Espacio debajo */
+  margin-bottom: var(--esp-2);
+}
+
+/* [SECCIÓN] Debilidad */
+.tarjeta-monstruo__debilidad {
+  /* [ESTILO] Tipografía legible */
+  font-family: var(--fuente-legible);
+  /* [ESTILO] Tamaño pequeño */
+  font-size: var(--fuente-sm);
+  /* [ESTILO] Texto claro */
+  color: var(--texto);
+}
+
+/* [SECCIÓN] Interacción con puntero fino (hover real) */
+@media (hover: hover) and (pointer: fine) {
+  .tarjeta-monstruo:hover {
+    /* [ESTILO] Borde dorado al pasar el mouse */
+    border-color: var(--oro);
+    /* [ESTILO] Sombra dorada tenue */
+    box-shadow: 0 0 8px var(--oro);
+  }
+}
+
+/* [SECCIÓN] [RESPONSIVE] Tablet en adelante: más aire */
+@media (min-width: 600px) {
+  .tarjeta-monstruo {
+    /* [RESPONSIVE] Padding más generoso */
+    padding: var(--esp-5);
+  }
+  .tarjeta-monstruo__nombre {
+    /* [RESPONSIVE] Nombre un poco más grande */
+    font-size: var(--fuente-lg);
+  }
+}

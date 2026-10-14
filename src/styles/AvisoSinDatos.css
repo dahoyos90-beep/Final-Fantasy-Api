@@ -1,0 +1,68 @@
+/*
+  [RUTA]    src/styles/AvisoSinDatos.css
+  [CAPA]    styles · anillo 0 (no conoce a nadie)
+  [HACE]    Viste al componente AvisoSinDatos: ventana roja oscura
+            con borde coral, como un mensaje de error del juego
+  [LO USAN] components/layout/AvisoSinDatos.jsx
+  [VERSIÓN] 1.0.0 · 2026-10-14 · versión inicial
+*/
+
+/* [SECCIÓN] Ventana del aviso */
+.aviso {
+  /* [ESTILO] Ancho máximo del contenido (token) */
+  max-width: var(--ancho-contenido);
+  /* [ESTILO] Centrado horizontal */
+  margin: var(--esp-6) auto;
+  /* [ESTILO] Fondo rojo oscuro (token) */
+  background: var(--aviso-fondo);
+  /* [ESTILO] Borde grueso coral (token) */
+  border: var(--borde-grueso) solid var(--aviso-borde);
+  /* [ESTILO] Sombra dura azul noche (estilo pixel art) */
+  box-shadow: 4px 4px 0 0 var(--noche-midgar);
+  /* [ESTILO] Sin redondeo (pixel art) */
+  border-radius: 0;
+  /* [ESTILO] Aire interior */
+  padding: var(--esp-5) var(--esp-4);
+  /* [ESTILO] Texto centrado */
+  text-align: center;
+}
+
+/* [SECCIÓN] Título del aviso */
+.aviso__titulo {
+  /* [ESTILO] Tipografía pixel (token) */
+  font-family: var(--fuente-pixel);
+  /* [ESTILO] Tamaño grande (token) */
+  font-size: var(--fuente-xl);
+  /* [ESTILO] Color coral de aviso (token) */
+  color: var(--aviso-borde);
+  /* [ESTILO] Interlineado amplio para tipografía cuadrada */
+  line-height: 1.6;
+  /* [ESTILO] Sombra dura azul noche */
+  text-shadow: 3px 3px 0 var(--noche-midgar);
+  /* [ESTILO] Separación con el texto de abajo */
+  margin-bottom: var(--esp-3);
+}
+
+/* [SECCIÓN] Texto del aviso */
+.aviso__texto {
+  /* [ESTILO] Tipografía legible (token) */
+  font-family: var(--fuente-legible);
+  /* [ESTILO] Tamaño normal (token) */
+  font-size: var(--fuente-md);
+  /* [ESTILO] Texto claro para contraste sobre rojo oscuro */
+  color: var(--texto);
+  /* [ESTILO] Interlineado cómodo */
+  line-height: 1.6;
+}
+
+/* [SECCIÓN] [RESPONSIVE] Tablet en adelante: más aire */
+@media (min-width: 600px) {
+  .aviso {
+    /* [RESPONSIVE] Más padding interior */
+    padding: var(--esp-6) var(--esp-5);
+  }
+  .aviso__titulo {
+    /* [RESPONSIVE] Título más grande */
+    font-size: 1.5rem;
+  }
+}

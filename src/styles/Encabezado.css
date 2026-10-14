@@ -1,0 +1,85 @@
+/*
+  [RUTA]    src/styles/Encabezado.css
+  [CAPA]    styles · anillo 0 (no conoce a nadie)
+  [HACE]    Viste al componente Encabezado: título en oro con
+            tipografía pixel y sombra dura azul, subtítulo en
+            cian y barra fina color mako debajo
+  [LO USAN] components/layout/Encabezado.jsx
+  [VERSIÓN] 1.0.0 · 2026-10-14 · versión inicial
+*/
+
+/* [SECCIÓN] Contenedor del encabezado */
+.encabezado {
+  /* [ESTILO] Texto centrado */
+  text-align: center;
+  /* [ESTILO] Espaciado generoso arriba y abajo (token) */
+  padding: var(--esp-6) var(--esp-4) var(--esp-5);
+}
+
+/* [SECCIÓN] Título principal */
+.encabezado__titulo {
+  /* [ESTILO] Tipografía pixel (token) */
+  font-family: var(--fuente-pixel);
+  /* [ESTILO] Tamaño grande (token) */
+  font-size: var(--fuente-2xl);
+  /* [ESTILO] Color oro (token) */
+  color: var(--oro);
+  /* [ESTILO] Interlineado amplio porque la pixel es cuadrada */
+  line-height: 1.6;
+  /* [ESTILO] Sombra dura (sin desenfoque) azul noche, estilo pixel art */
+  text-shadow: 4px 4px 0 var(--noche-midgar);
+  /* [ESTILO] Espacio debajo del título */
+  margin-bottom: var(--esp-4);
+}
+
+/* [SECCIÓN] Subtítulo */
+.encabezado__subtitulo {
+  /* [ESTILO] Tipografía legible (token) */
+  font-family: var(--fuente-legible);
+  /* [ESTILO] Tamaño pequeño-medio (token) */
+  font-size: var(--fuente-md);
+  /* [ESTILO] Color cian (token) */
+  color: var(--cian-hp);
+  /* [ESTILO] Espacio debajo antes de la barra mako */
+  margin-bottom: var(--esp-4);
+}
+
+/* [SECCIÓN] Barra mako debajo (hecha con ::after) */
+.encabezado::after {
+  /* [ESTILO] Contenido vacío para que el pseudo-elemento exista */
+  content: '';
+  /* [ESTILO] Se muestra como bloque para poder darle altura */
+  display: block;
+  /* [ESTILO] Ancho máximo del contenido (token) */
+  width: 100%;
+  max-width: var(--ancho-contenido);
+  /* [ESTILO] Alto fino de la barra */
+  height: 4px;
+  /* [ESTILO] Color mako con un brillo suave */
+  background: var(--mako);
+  box-shadow: 0 0 8px var(--mako);
+  /* [ESTILO] Centrado */
+  margin: var(--esp-2) auto 0;
+}
+
+/* [SECCIÓN] [RESPONSIVE] Ajustes para tablet en adelante */
+/* [RESPONSIVE] A partir de 600px el título puede ser más grande */
+@media (min-width: 600px) {
+  .encabezado__titulo {
+    /* [RESPONSIVE] Tamaño mayor en tablet y superiores */
+    font-size: 2rem;
+  }
+}
+
+/* [SECCIÓN] [RESPONSIVE] Ajustes para PC y TV */
+/* [RESPONSIVE] A partir de 1024px más aire arriba y abajo */
+@media (min-width: 1024px) {
+  .encabezado {
+    /* [RESPONSIVE] Más espacio vertical */
+    padding: var(--esp-6) var(--esp-5);
+  }
+  .encabezado__titulo {
+    /* [RESPONSIVE] Título aún más grande */
+    font-size: 2.5rem;
+  }
+}

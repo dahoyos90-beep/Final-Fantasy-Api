@@ -1,0 +1,88 @@
+/*
+  [RUTA]    src/styles/TarjetaJuego.css
+  [CAPA]    styles · anillo 0 (no conoce a nadie)
+  [HACE]    Viste la tarjeta del juego: ventana interna oscura
+            con borde fino, imagen enmarcada y datos en cian
+  [LO USAN] components/juegos/TarjetaJuego.jsx
+  [VERSIÓN] 1.0.0 · 2026-10-14 · versión inicial
+*/
+
+/* [SECCIÓN] Ventana interna de la tarjeta */
+.tarjeta-juego {
+  /* [ESTILO] Fondo azul noche más oscuro que el panel */
+  background: var(--noche-midgar-2);
+  /* [ESTILO] Borde fino claro */
+  border: var(--borde-fino) solid var(--borde-claro);
+  /* [ESTILO] Sin redondeo (pixel art) */
+  border-radius: 0;
+  /* [ESTILO] Aire interior */
+  padding: var(--esp-4);
+  /* [ESTILO] Centrado del contenido */
+  text-align: center;
+  /* [ESTILO] Permite que el contenido se encoja sin desbordar */
+  min-width: 0;
+  /* [ESTILO] Transición suave para el hover */
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* [SECCIÓN] Marco de la imagen */
+.tarjeta-juego__imagen {
+  /* [ESTILO] Ocupa el ancho disponible */
+  width: 100%;
+  /* [ESTILO] Reserva un cuadrado para que no salte la página */
+  aspect-ratio: 1 / 1;
+  /* [ESTILO] Ajusta sin deformar */
+  object-fit: contain;
+  /* [ESTILO] Fondo del marco */
+  background: var(--noche-midgar);
+  /* [ESTILO] Borde de pixel alrededor */
+  border: var(--borde-fino) solid var(--borde-sombra);
+  /* [ESTILO] Espacio debajo de la imagen */
+  margin-bottom: var(--esp-3);
+}
+
+/* [SECCIÓN] Nombre del juego */
+.tarjeta-juego__nombre {
+  /* [ESTILO] Tipografía pixel */
+  font-family: var(--fuente-pixel);
+  /* [ESTILO] Tamaño medio */
+  font-size: var(--fuente-md);
+  /* [ESTILO] Color oro */
+  color: var(--oro);
+  /* [ESTILO] Interlineado amplio para tipografía cuadrada */
+  line-height: 1.6;
+  /* [ESTILO] Espacio debajo */
+  margin-bottom: var(--esp-2);
+}
+
+/* [SECCIÓN] Año y plataforma */
+.tarjeta-juego__datos {
+  /* [ESTILO] Tipografía legible */
+  font-family: var(--fuente-legible);
+  /* [ESTILO] Tamaño pequeño */
+  font-size: var(--fuente-sm);
+  /* [ESTILO] Color cian */
+  color: var(--cian-hp);
+}
+
+/* [SECCIÓN] Interacción con puntero fino (hover real) */
+@media (hover: hover) and (pointer: fine) {
+  .tarjeta-juego:hover {
+    /* [ESTILO] Borde dorado al pasar el mouse */
+    border-color: var(--oro);
+    /* [ESTILO] Sombra dorada tenue */
+    box-shadow: 0 0 8px var(--oro);
+  }
+}
+
+/* [SECCIÓN] [RESPONSIVE] Tablet en adelante: más aire */
+@media (min-width: 600px) {
+  .tarjeta-juego {
+    /* [RESPONSIVE] Padding más generoso */
+    padding: var(--esp-5);
+  }
+  .tarjeta-juego__nombre {
+    /* [RESPONSIVE] Nombre un poco más grande */
+    font-size: var(--fuente-lg);
+  }
+}
